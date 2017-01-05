@@ -51,6 +51,7 @@ if(isset($_POST['btn-signup']))
   }
 }
 ?>
+
 <!DOCTYPE>
 
 <html>

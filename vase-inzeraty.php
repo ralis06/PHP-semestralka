@@ -41,11 +41,10 @@ if(isset($_POST['btn-login']))
     <div id="search">
       <?php
 
+      // include login panelu - prihlasit/odhlasit
       include "login.php";
 
       ?>
-
-
     </div>
     <br class="clear" />
   </div>
