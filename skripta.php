@@ -1,3 +1,20 @@
+<?php
+require_once 'dbconfig.php';
+if(isset($_POST['btn-login']))
+{
+  $umail = $_POST['txt_uname_email'];
+  $upass = $_POST['txt_password'];
+
+  if($user->login($umail,$upass))
+  {
+    $user->redirect('index.php');
+  }
+  else
+  {
+    $error = "Špatné přihlašovací údaje!";
+  }
+}
+?>
 <!DOCTYPE>
 
 <html>
@@ -10,15 +27,21 @@
 <div class="wrapper col1">
   <div id="topbar">
     <div id="quickcont">
-
+      <?php
+      if(isset($error))
+      {
+        ?>
+        Chyba: <?php echo $error; ?>
+        <?php
+      }
+      ?>
     </div>
     <div id="search">
-      <form action="#" method="post">
+      <?php
 
-          <input type="text" name="user" placeholder="Prosím, vložte váš e-mail"> <input type="password" name="password" placeholder="Heslo">
+      include "login.php";
 
-          <input type="submit" name="go" id="go" value="Prihlásit se" />
-      </form>
+      ?>
     </div>
     <br class="clear" />
   </div>

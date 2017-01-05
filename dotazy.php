@@ -37,13 +37,11 @@ if(isset($_POST['btn-login']))
       ?>
     </div>
     <div id="search">
-      <form action="#" method="post">
+      <?php
 
-          <input type="text" name="user" placeholder="Prosím, vložte váš e-mail"> <input type="password" name="password" placeholder="Heslo">
-
-          <input type="submit" name="go" id="go" value="Prihlásit se" />
-      </form>
-    </div>
+      include "login.php";
+echo "<br><br>";
+      ?>
     <br class="clear" />
   </div>
 </div>
