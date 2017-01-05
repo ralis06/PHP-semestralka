@@ -1,4 +1,7 @@
 <?php
+
+// smazani jednotliveho inzeratu dle id, které přijde z třídy kniha.php
+
 $servername = "localhost";
 $username = "root";
 $password = "admin";

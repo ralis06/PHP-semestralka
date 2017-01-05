@@ -1,6 +1,10 @@
 
 <?php
 
+// připojení k tabulce users
+// později potřeba předělat do databaze.php
+//pozn.: jedná se o soubor z testování
+
 session_start();
 
 $DB_host = "localhost";

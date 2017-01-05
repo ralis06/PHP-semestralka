@@ -1,6 +1,6 @@
 ﻿<?php
 
-
+// připojení do tabulky inzerce
 
 
 class databaze
@@ -35,7 +35,7 @@ class databaze
 
     }
 
-
+    // select obecný , pro index.php - výpis na hlavní stránce
     public function select()
     {
 
@@ -56,6 +56,7 @@ class databaze
         return $knihy;
     }
 
+    // výpis pro různé kategorie knih dle parametru $data
     public function select_knihy($data)
     {
 
@@ -81,7 +82,7 @@ class databaze
 
 
 
-
+    // výpis pro jednotlivé přihlášené uživatele v admin. sekci
     public function select_admin($email)
     {
 

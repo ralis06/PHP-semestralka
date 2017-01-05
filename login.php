@@ -1,5 +1,7 @@
 <?php
 
+// přihlašovací form / po přihlášení se přepne na odhlášení...
+//jedná se o include do html šablony..
 
 if($user->is_loggedin()!="")
 {

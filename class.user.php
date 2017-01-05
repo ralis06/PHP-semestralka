@@ -8,11 +8,12 @@ class USER
         $this->db = $DB_con;
     }
 
+
     public function register($umail,$upass)
     {
         try
         {
-            $new_password = password_hash($upass, PASSWORD_DEFAULT);
+            $new_password = password_hash($upass, PASSWORD_DEFAULT);   // šifrování hesla
 
             $stmt = $this->db->prepare("INSERT INTO users(user_email,user_pass) 
                                                        VALUES(:umail, :upass)");
