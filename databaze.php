@@ -13,9 +13,9 @@ class databaze
     public function __construct()
     {
         $servername = "localhost";
-        $username = "holanmic";
-        $password = "461149";
-        $dbname = "holanmic";
+        $username = "";
+        $password = "";
+        $dbname = "";
 
         $this->spojeni = mysqli_connect($servername, $username, $password, $dbname);
         //echo "Spojeno";

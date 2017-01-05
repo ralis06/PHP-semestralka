@@ -3,9 +3,9 @@
 // smazani jednotliveho inzeratu dle id, které přijde z třídy kniha.php
 
 $servername = "localhost";
-$username = "root";
-$password = "admin";
-$dbname = "knihy";
+$username = "";
+$password = "";
+$dbname = "";
 
 $spojeni = mysqli_connect($servername, $username, $password, $dbname);
 if (!$spojeni) {
