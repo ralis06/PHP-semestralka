@@ -22,6 +22,8 @@ if(isset($_POST['btn-login']))
 <title>Knihy-učebnice|UK Pedf Praha</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="layout/styles/layout.css" type="text/css" />
+
+
 </head>
 <body id="top">
 <div class="wrapper col1">
@@ -76,59 +78,78 @@ if(isset($_POST['btn-login']))
   <div id="container">
 
     <div id="content">
+
       <h2>Seznam inzerce</h2>
-      <h4>Filtrovat</h4>
 
-     <form method="post" action="filtrovat.php">
-      Stav
-        <select name="vyber" id="select">
-          <option value="Nová">Nová</option>
-          <option value="Použitá">Použitá</option>
-          <option value="Zničená">Použitá</option>
-        </select>
+      <?php include 'filtr.php'?>
 
-        Lokalita:
-        <select name="lokalita">
-          <option value="Hlavní město Praha">Hlavní město Praha</option>
-          <option value="Středočeský kraj">Středočeský kraj</option>
-          <option value="Jihočeský kraj">Jihočeský kraj</option>
-          <option value="Plzeňský kraj">Plzeňský kraj</option>
-          <option value="Karlovarský kraj">Karlovarský kraj</option>
-          <option value="Ústecký kraj">Ústecký kraj</option>
-          <option value="Liberecký kraj">Liberecký kraj</option>
-          <option value="Královéhradecký kraj">Královéhradecký kraj</option>
-          <option value="Pardubický kraj">Pardubický kraj</option>
-          <option value="Kraj Vysočina">Kraj Vysočina</option>
-          <option value="Jihomoravský kraj">Jihomoravský kraj</option>
-          <option value="Olomoucký kraj">Olomoucký kraj</option>
-          <option value="Zlínský kraj">Zlínský kraj</option>
-          <option value="Moravskoslezský kraj">Moravskoslezský kraj</option>
-        </select>
+      <div class="scrollbar" id="scrool">
+        <div class="force-overflow"></div>
+      <table border="1" color="black" >
 
-        <input type="submit" name="odeslano" value=Filtrovat />
-</form>
+        <thead>
+        <tr>
+          <th>Číslo inzerátu</th><th>Čas přidání</th><th>Stav</th><th>Název</th><th>Lokalita</th><th>Cena</th>
 
-      <p>
-      <table border="1" color="black">
+          <th>Info</th>
 
-      <th>Číslo inzerátu</th><th>Čas přidání</th><th>Stav</th><th>Název</th><th>Lokalita</th><th>Cena</th><th>Info</th>
+        </tr>
+        </thead>
+        <tbody>
+
+
 
       <?php       // vypsani zaznamu z db - vsechny inzerce
 
-      //include_once ('dbconnect.php');
-      require_once ('databaze.php');
-      require_once ('kniha.php');
+        //include_once ('dbconnect.php');
+        require_once('databaze.php');
+        require_once('kniha.php');
 
-      $db = new databaze();
-      $knihy = array();
-      $knihy = $db->select_knihy('Kniha-učebnice');
-      $db->close();
+      if(isset($_POST['filtr'])) {
 
-      foreach ($knihy as $kniha) {
-        $kniha->vypis_index();
+
+        $db = new databaze();
+        $knihy = array();
+        $knihy = $db->select_knihy_filtr('Kniha-učebnice',$_POST['lokalita'],$_POST['stari'],$_POST['typ_razeni'],$_POST['razeni']);
+        $db->close();
+
+        foreach ($knihy as $kniha) {
+          $kniha->vypis_index();
+
+
+
+          }
+
+
       }
+
+       else {
+
+
+
+         $db = new databaze();
+         $knihy = array();
+         $knihy = $db->select_knihy('Kniha-učebnice');
+         $db->close();
+
+         foreach ($knihy as $kniha) {
+           $kniha->vypis_index();
+
+
+
+         }
+
+       }
+
       ?>
+
+
+        </tbody>
     </table></p>
+
+      </div>
+
+
   </div>
     <div id="column">
       <div class="holder">

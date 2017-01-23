@@ -76,30 +76,65 @@ if(isset($_POST['btn-login']))
   <div id="container">
 
     <div id="content">
-      <h2>Ostatní materiály ke studiu</h2>
+
       <h2>Seznam inzerce</h2>
-      <p>
+      <div class="scrollbar" id="scrool">
+        <div class="force-overflow"></div>
+      <?php include 'filtr.php'?>
+
       <table border="1" color="black">
 
-        <th>Číslo inzerátu</th><th>Čas přidání</th><th>Stav</th><th>Název</th><th>Lokalita</th><th>Cena</th><th>Info</th>
+        <thead>
+        <tr>
+          <th>Číslo inzerátu</th><th>Čas přidání</th><th>Stav</th><th>Název</th><th>Lokalita</th><th>Cena</th>
+
+          <th>Info</th>
+
+        </tr>
+        </thead>
+        <tbody>
 
         <?php       // vypsani zaznamu z db - vsechny inzerce
 
         //include_once ('dbconnect.php');
-        require_once ('databaze.php');
-        require_once ('kniha.php');
+        require_once('databaze.php');
+        require_once('kniha.php');
 
-        $db = new databaze();
-        $knihy = array();
-        $knihy = $db->select_knihy('Ostatní');
-        $db->close();
+        if(isset($_POST['filtr'])) {
 
-        foreach ($knihy as $kniha) {
-          $kniha->vypis_index();
+
+          $db = new databaze();
+          $knihy = array();
+          $knihy = $db->select_knihy_filtr('Ostatni',$_POST['lokalita'],$_POST['stari'],$_POST['typ_razeni'],$_POST['razeni']);
+          $db->close();
+
+          foreach ($knihy as $kniha) {
+            $kniha->vypis_index();
+
+          }
+
+
         }
+
+        else {
+
+
+
+          $db = new databaze();
+          $knihy = array();
+          $knihy = $db->select_knihy('Ostatni');
+          $db->close();
+
+          foreach ($knihy as $kniha) {
+            $kniha->vypis_index();
+
+          }
+        }
+
         ?>
+        </tbody>
       </table></p>
-    </div>
+    </div></div>
     <div id="column">
     </div>
     <br class="clear" />

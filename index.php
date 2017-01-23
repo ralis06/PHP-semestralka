@@ -87,7 +87,15 @@ include "login.php";
     <p>
     <table border="1" color="black">
 
-            <th>Číslo inzerátu</th><th>Čas přidání</th><th>Stav</th><th>Název</th><th>Lokalita</th><th>Cena</th><th>Info</th>
+        <thead>
+        <tr>
+          <th>Číslo inzerátu</th><th>Čas přidání</th><th>Stav</th><th>Název</th><th>Lokalita</th><th>Cena</th>
+
+          <th>Info</th>
+
+        </tr>
+        </thead>
+        <tbody>
 
       <?php       // vypsani zaznamu z db - vsechny inzerce
 
@@ -104,7 +112,8 @@ include "login.php";
         $kniha->vypis_index();
       }
       ?>
-    </table></p>
+        </tbody>
+      </table></p>
   </div>
 
     <br class="clear" />

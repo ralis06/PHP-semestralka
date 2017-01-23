@@ -1,4 +1,4 @@
-
+﻿
 <?php
 
 // připojení k tabulce users

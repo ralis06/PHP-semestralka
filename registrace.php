@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once 'dbconfig.php';
 
 if($user->is_loggedin()!="")
@@ -13,7 +13,7 @@ if(isset($_POST['btn-signup']))
   $upass = trim($_POST['txt_upass']);
 
   if($umail=="") {
-    $error[] = "provide email id !";
+    $error[] = "Prosím, vložte platnou mailovou adresu!";
   }
   else if(!filter_var($umail, FILTER_VALIDATE_EMAIL)) {
     $error[] = 'Prosím, vložte platnou mailovou adresu!';
@@ -64,14 +64,7 @@ if(isset($_POST['btn-signup']))
 <div class="wrapper col1">
   <div id="topbar">
     <div id="quickcont">
-      <?php
-      if(isset($error))
-      {
-        ?>
-        Chyba: <?php echo $error; ?>
-        <?php
-      }
-      ?>
+
     </div>
     <div id="search">
       <?php
@@ -120,7 +113,7 @@ if(isset($_POST['btn-signup']))
   <div id="container">
 
     <div id="content">
-      <form method="post">
+      <form name="review" method="post" onsubmit="return checkform(this);">
       <h2>Registrovat se</h2>
 
       <?php
@@ -145,17 +138,29 @@ if(isset($_POST['btn-signup']))
       }
       ?>
 
-        <input type="text" class="form-control" name="txt_umail" placeholder="Vložte svůj Email" value="<?php if(isset($error)){echo $umail;}?>" />
+        <input type="text" name="txt_umail" placeholder="Vložte svůj Email" value="<?php if(isset($error)){echo $umail;}?>" />
 
         <br><br>
 
-        <input type="password" class="form-control" name="txt_upass" placeholder="Vložte heslo" />
+        <input type="password"  name="txt_upass" placeholder="Vložte heslo" />
 
         <div id="small">Heslo musí být alespoň 6 znaků dlouhé...</div><br>
-     <hr />
 
-        <button type="submit" class="btn btn-block btn-primary" name="btn-signup">
-          <i class="glyphicon glyphicon-open-file"></i>&nbsp;Zaregistrovat se
+
+      <font color="#DD0000">Opište bezpečnostní kód ></font> <span id="txtCaptchaDiv" style="background-color:#A51D22;color:#FFF;padding:5px"></span>
+      <input type="hidden" id="txtCaptcha" /><br>
+
+      <input type="text" name="txtInput" id="txtInput" size="22" />
+
+
+
+    <script src="js/captcha.js"></script>
+
+
+
+    <hr />
+
+        <button type="submit"  name="btn-signup">&nbsp;Zaregistrovat se
         </button>
 
 

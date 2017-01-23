@@ -101,8 +101,13 @@ echo "
         <h2>Seznam vaší inzerce</h2>
     <p>
     <table border='1' color='black''>
-
+ <thead>
+        <tr>
             <th>Číslo inzerátu</th><th>Čas přidání</th><th>Stav</th><th>Název</th><th>Lokalita</th><th>Cena</th><th>Info</th><th>Smazat</th>
+
+  </tr>
+        </thead>
+        <tbody>
 
 ";
 
@@ -122,16 +127,15 @@ echo "
         $kniha->vypis_admin();
       }
 
-       echo" </table></p>";
+       echo"    </tbody>
+    </table></p>";
 
 
 
       }
       else
       {
-        echo "
-    Pro vstup do této sekce se prosím přihlašte.
-      ";
+        echo "<div id='error_pic'><img width=\"20%\" src=\"images/er.png\"><br><h4>Pro vstup do této sekce se prosím přihlašte!</h4></div>";
       }
 
       ?>
@@ -140,7 +144,7 @@ echo "
     </div>
     <div id="column">
           </div>
-    <br class="clear" /><br><br><br><br><br>
+    <br class="clear" /><br><br>
   </div>
 </div>
 <div class="wrapper col5">

@@ -38,9 +38,8 @@ if(isset($_POST['btn-login']))
     </div>
     <div id="search">
       <?php
-
       include "login.php";
-echo "<br><br>";
+echo "<br>";
       ?>
     <br class="clear" />
   </div>
@@ -84,20 +83,32 @@ echo "<br><br>";
     <div id="content">
       <h2>Kontaktní formulář</h2>
 
-      <p><form action="poslat.php" method="post">
+      <p><form action="poslat.php" method="post" onsubmit="return checkform(this);">
 
        Jméno:<br>
      <input name="jmeno" size="10" type="text" required/><br><br>
         Email:<br>
-        <input name="email" size="35"  type="text" required/> <br><br>
+        <input name="email" size="35"  type="email" required/> <br><br>
         Text:
         <br><textarea name="text" rows="8" cols="50" required></textarea>
 
 
         <br><br>
 
-        <input type="submit" value="Odeslat zprávu" />
+
+        <font color="#DD0000">Opište bezpečnostní kód ></font> <span id="txtCaptchaDiv" style="background-color:#A51D22;color:#FFF;padding:5px"></span>
+        <input type="hidden" id="txtCaptcha" /><br>
+
+        <input type="text" name="txtInput" id="txtInput" size="22" /><br>
+
+
+
+        <script src="js/captcha.js"></script><br>
+
+
+        <button type="submit"/>Odeslat zprávu</button>
         <input type="reset" value="Vymazat"/>
+
       </form>
       </p>
 

@@ -7,7 +7,7 @@ class databaze
 {
 
     public $spojeni;
-    public  $promenna;
+    public $promenna;
 
 
     public function __construct()
@@ -21,10 +21,9 @@ class databaze
         //echo "Spojeno";
 
 
-
     }
 
-    public function vlozit($data, $nazev, $isbn_cislo, $rok_vydani, $stari , $lokalita , $text_inzeratu,$doruceni , $cena, $kontakt,$email, $cas)
+    public function vlozit($data, $nazev, $isbn_cislo, $rok_vydani, $stari, $lokalita, $text_inzeratu, $doruceni, $cena, $kontakt, $email, $cas)
     {
 
         $sql = "INSERT INTO inzerce(id,data,nazev,isbn_cislo,rok_vydani,stari,lokalita,text_inzeratu,doruceni,cena,kontakt,email,cas) 
@@ -41,7 +40,7 @@ class databaze
 
         $knihy = array();
 
-        $sql = "SELECT * FROM inzerce ORDER BY id DESC limit 20";
+        $sql = "SELECT * FROM inzerce ORDER BY id DESC limit 10";
         $navrat = $this->spojeni = mysqli_query($this->spojeni, $sql);
 
         if ($navrat->num_rows > 0) {
@@ -49,7 +48,7 @@ class databaze
 
             while ($row = $navrat->fetch_assoc()) {
 
-                $knihy[$i] = new kniha($row["id"], $row["data"], $row["nazev"], $row["isbn_cislo"], $row["rok_vydani"], $row["stari"], $row["lokalita"], $row["text_inzeratu"], $row["doruceni"], $row["cena"], $row["kontakt"],$row["email"], $row["cas"]);
+                $knihy[$i] = new kniha($row["id"], $row["data"], $row["nazev"], $row["isbn_cislo"], $row["rok_vydani"], $row["stari"], $row["lokalita"], $row["text_inzeratu"], $row["doruceni"], $row["cena"], $row["kontakt"], $row["email"], $row["cas"]);
                 $i++;
             }
         }
@@ -60,10 +59,13 @@ class databaze
     public function select_knihy($data)
     {
 
+
+
         $knihy = array();
 
-        $sql = "SELECT * FROM inzerce WHERE data = '$data' ORDER BY id DESC ";
+        $sql = "SELECT * FROM inzerce WHERE data = '$data' ORDER BY id DESC  ";
         $navrat = $this->spojeni = mysqli_query($this->spojeni, $sql);
+
 
         if ($navrat->num_rows > 0) {
 
@@ -72,7 +74,35 @@ class databaze
 
             while ($row = $navrat->fetch_assoc()) {
 
-                $knihy[$i] = new kniha($row["id"], $row["data"], $row["nazev"], $row["isbn_cislo"], $row["rok_vydani"], $row["stari"], $row["lokalita"], $row["text_inzeratu"], $row["doruceni"], $row["cena"], $row["kontakt"],$row["email"], $row["cas"]);
+                $knihy[$i] = new kniha($row["id"], $row["data"], $row["nazev"], $row["isbn_cislo"], $row["rok_vydani"], $row["stari"], $row["lokalita"], $row["text_inzeratu"], $row["doruceni"], $row["cena"], $row["kontakt"], $row["email"], $row["cas"]);
+                $i++;
+            }
+        }
+        return $knihy;
+    }
+
+    // filtr
+    public function select_knihy_filtr($data,$lokalita,$stari,$typ_razeni,$razeni)
+    {
+
+
+        $knihy = array();
+
+
+
+
+        $sql = "SELECT * FROM inzerce WHERE data = '$data' AND lokalita = '$lokalita' AND stari = '$stari' ORDER BY $typ_razeni $razeni";
+        $navrat = $this->spojeni = mysqli_query($this->spojeni, $sql);
+
+
+        if ($navrat->num_rows > 0) {
+
+
+            $i = 0;
+
+            while ($row = $navrat->fetch_assoc()) {
+
+                $knihy[$i] = new kniha($row["id"], $row["data"], $row["nazev"], $row["isbn_cislo"], $row["rok_vydani"], $row["stari"], $row["lokalita"], $row["text_inzeratu"], $row["doruceni"], $row["cena"], $row["kontakt"], $row["email"], $row["cas"]);
                 $i++;
             }
         }
