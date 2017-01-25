@@ -1,4 +1,4 @@
-﻿
+
 <!DOCTYPE>
 
 <html>
@@ -26,9 +26,9 @@ if ($user->is_loggedin() != "") {
 // smazani jednotliveho inzeratu dle id, které přijde z třídy kniha.php
 
     $servername = "localhost";
-    $username = "";
-    $password = "";
-    $dbname = "";
+    $username = "holanmic";
+    $password = "461149";
+    $dbname = "holanmic";
 
     $spojeni = mysqli_connect($servername, $username, $password, $dbname);
     if (!$spojeni) {

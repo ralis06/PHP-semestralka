@@ -1,21 +1,4 @@
-<?php
-require_once 'dbconfig.php';
-if(isset($_POST['btn-login']))
-{
-  $umail = $_POST['txt_uname_email'];
-  $upass = $_POST['txt_password'];
-
-  if($user->login($umail,$upass))
-  {
-    $user->redirect('index.php');
-  }
-  else
-  {
-    $error = "Špatné přihlašovací údaje!";
-  }
-}
-?>
-<!DOCTYPE>
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -43,7 +26,7 @@ echo "<br>";
       ?>
     <br class="clear" />
   </div>
-</div>
+</div></div>
 <div class="wrapper col2">
   <div id="header">
     <div id="logo">
@@ -96,7 +79,7 @@ echo "<br>";
         <br><br>
 
 
-        <font color="#DD0000">Opište bezpečnostní kód ></font> <span id="txtCaptchaDiv" style="background-color:#A51D22;color:#FFF;padding:5px"></span>
+        <span>Opište bezpečnostní kód ></span> <span id="txtCaptchaDiv" style="background-color:#A51D22;color:#FFF;padding:5px"></span>
         <input type="hidden" id="txtCaptcha" /><br>
 
         <input type="text" name="txtInput" id="txtInput" size="22" /><br>
@@ -106,11 +89,11 @@ echo "<br>";
         <script src="js/captcha.js"></script><br>
 
 
-        <button type="submit"/>Odeslat zprávu</button>
+        <button type="submit">Odeslat zprávu</button>
         <input type="reset" value="Vymazat"/>
 
       </form>
-      </p>
+
 
     </div>
     <div id="column">
@@ -124,18 +107,18 @@ echo "<br>";
     <h2>Odkazy</h2>
     <div class="footbox">
       <h2>Pedagogická fakulta Univerzita Karlova</h2>
-      <p><a href="http://www.pedf.cuni.cz/"><img src="images/odkazy/uk.png"></a></p>
+      <p><a href="http://www.pedf.cuni.cz/"><img src="images/odkazy/uk.png" alt="pedf"></a></p>
 
 
     </div>
     <div class="footbox">
       <h2>Webové aplikaec Univerity Karlovy</h2>
-      <p> <a href="https://is.cuni.cz/webapps/"><img src="images/odkazy/app.png"></a></p>
+      <p> <a href="https://is.cuni.cz/webapps/"><img src="images/odkazy/app.png" alt="webapps"></a></p>
 
     </div>
     <div class="footbox last">
       <h2>Studijní informační systém UK PedF</h2>
-      <p> <a href="https://is.cuni.cz/studium/"><img src="images/odkazy/sis.png"></a></p>
+      <p> <a href="https://is.cuni.cz/studium/"><img src="images/odkazy/sis.png" alt="sis"></a></p>
 
 
     </div>

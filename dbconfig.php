@@ -1,4 +1,4 @@
-﻿
+
 <?php
 
 // připojení k tabulce users
@@ -8,9 +8,9 @@
 session_start();
 
 $DB_host = "localhost";
-$DB_user = "";
-$DB_pass = "";
-$DB_name = "";
+$DB_user = "holanmic";
+$DB_pass = "461149";
+$DB_name = "holanmic";
 
 try
 {

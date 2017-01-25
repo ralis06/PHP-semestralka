@@ -1,4 +1,20 @@
 <?php
+require_once 'dbconfig.php';
+
+
+if (isset($_POST['btn-login'])) {
+    $umail = $_POST['txt_uname_email'];
+    $upass = $_POST['txt_password'];
+
+    if ($user->login($umail, $upass)) {
+        $user->redirect('index.php');
+    } else {
+        $error = "Špatné přihlašovací údaje!";
+    }
+}
+date_default_timezone_set("Europe/Prague");
+
+
 
 // přihlašovací form / po přihlášení se přepne na odhlášení...
 //jedná se o include do html šablony..
@@ -20,7 +36,7 @@ else
      <form method = \"post\" >
 
           <input type = \"text\" name = \"txt_uname_email\" placeholder = \"Prosím, vložte váš e-mail\" required />
-          <input type = \"password\" name = \"txt_password\" placeholder = \"Heslo\" required />
+          <input type = \"password\" name = \"txt_password\"  placeholder = \"Heslo\" required />
           <input type = \"submit\" name = \"btn-login\" id = \"go\"  value = \"Prihlásit se\" />
       </form >
       ";

@@ -1,9 +1,11 @@
 
 
 <form method="post" action="knihy-ucebnice.php">
+
+
     <h3>Lokalita:
 
-        <select name="lokalita">
+        <select name="lokalita" id="sort-item">
             <option value="'*'">Všechny kraje</option>
             <option disabled>-----------------------</option>
             <option value="Hlavní město Praha">Hlavní město Praha</option>
@@ -44,12 +46,9 @@
             <option value="DESC" >Sestupně</option>
 
         </select>&nbsp;&nbsp;
-
-
-
+        
 
         <input type="submit" name="filtr" value="Filtrovat">
 
     </h3>
-
 </form>

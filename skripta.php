@@ -1,21 +1,4 @@
-<?php
-require_once 'dbconfig.php';
-if(isset($_POST['btn-login']))
-{
-  $umail = $_POST['txt_uname_email'];
-  $upass = $_POST['txt_password'];
-
-  if($user->login($umail,$upass))
-  {
-    $user->redirect('index.php');
-  }
-  else
-  {
-    $error = "Špatné přihlašovací údaje!";
-  }
-}
-?>
-<!DOCTYPE>
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -89,7 +72,7 @@ if(isset($_POST['btn-login']))
         <div class="force-overflow"></div>
       <?php include 'filtr.php'?>
 
-      <table border="1" color="black">
+      <table>
 
         <thead>
         <tr>
@@ -141,7 +124,7 @@ if(isset($_POST['btn-login']))
         ?>
 
 </tbody>
-    </table></p>
+    </table>
     </div></div>
     <div id="column">
 
@@ -154,18 +137,18 @@ if(isset($_POST['btn-login']))
     <h2>Odkazy</h2>
     <div class="footbox">
       <h2>Pedagogická fakulta Univerzita Karlova</h2>
-      <p><a href="http://www.pedf.cuni.cz/"><img src="images/odkazy/uk.png"></a></p>
+      <p><a href="http://www.pedf.cuni.cz/"><img src="images/odkazy/uk.png" alt="pedf"></a></p>
 
 
     </div>
     <div class="footbox">
       <h2>Webové aplikaec Univerity Karlovy</h2>
-      <p> <a href="https://is.cuni.cz/webapps/"><img src="images/odkazy/app.png"></a></p>
+      <p> <a href="https://is.cuni.cz/webapps/"><img src="images/odkazy/app.png" alt="webapps"></a></p>
 
     </div>
     <div class="footbox last">
       <h2>Studijní informační systém UK PedF</h2>
-      <p> <a href="https://is.cuni.cz/studium/"><img src="images/odkazy/sis.png"></a></p>
+      <p> <a href="https://is.cuni.cz/studium/"><img src="images/odkazy/sis.png" alt="sis"></a></p>
 
 
     </div>

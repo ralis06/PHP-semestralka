@@ -28,7 +28,7 @@ class kniha
     {
 
 
-        echo "<tr><td align='center' width='40px'>$this->id</td><td width='80px'>$this->cas</td><td>$this->stari</td><td>$this->nazev</td><td width='120px'>$this->lokalita</td><td>$this->cena Kč,-</td><td width='80px'><a href=\"javascript:showHide($this->id)\";>Více informací</a></td></tr>";
+        echo "<tr><td class='cislo'>$this->id</td><td>$this->cas</td><td>$this->stari</td><td>$this->nazev</td><td>$this->lokalita</td><td>$this->cena Kč,-</td><td><a href=\"javascript:showHide($this->id)\">Více informací</a></td></tr>";
         echo "<tr><td colspan=\"7\" ><div id='$this->id' style=\"display:none\">
 <hr>
 <b>ISBN:</b>
@@ -55,7 +55,7 @@ $this->doruceni <br>
     {
 
 
-        echo "<tr><td align='center' width='40px'>$this->id</td><td width='80px'>$this->cas</td><td>$this->stari</td><td>$this->nazev</td><td width='120px'>$this->lokalita</td><td width='100px'>$this->cena Kč,-</td><td width='80px'><a href=\"javascript:showHide($this->id)\";>Více informací</a></td>
+        echo "<tr><td align='center' width='40px'>$this->id</td><td width='80px'>$this->cas</td><td>$this->stari</td><td>$this->nazev</td><td width='120px'>$this->lokalita</td><td width='100px'>$this->cena Kč,-</td><td width='80px'><a href=\"javascript:showHide($this->id)\">Více informací</a></td>
 <td bgcolor='#FF7F7F' width='40'>
 
 

@@ -52,7 +52,7 @@ if(isset($_POST['btn-signup']))
 }
 ?>
 
-<!DOCTYPE>
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -181,18 +181,18 @@ if(isset($_POST['btn-signup']))
     <h2>Odkazy</h2>
     <div class="footbox">
       <h2>Pedagogická fakulta Univerzita Karlova</h2>
-      <p><a href="http://www.pedf.cuni.cz/"><img src="images/odkazy/uk.png"></a></p>
+      <p><a href="http://www.pedf.cuni.cz/"><img src="images/odkazy/uk.png" alt="pedf"></a></p>
 
 
     </div>
     <div class="footbox">
       <h2>Webové aplikaec Univerity Karlovy</h2>
-      <p> <a href="https://is.cuni.cz/webapps/"><img src="images/odkazy/app.png"></a></p>
+      <p> <a href="https://is.cuni.cz/webapps/"><img src="images/odkazy/app.png" alt="webapps"></a></p>
 
     </div>
     <div class="footbox last">
       <h2>Studijní informační systém UK PedF</h2>
-      <p> <a href="https://is.cuni.cz/studium/"><img src="images/odkazy/sis.png"></a></p>
+      <p> <a href="https://is.cuni.cz/studium/"><img src="images/odkazy/sis.png" alt="sis"></a></p>
 
 
     </div>

@@ -1,27 +1,10 @@
-<?php
-require_once 'dbconfig.php';
-if(isset($_POST['btn-login']))
-{
-  $umail = $_POST['txt_uname_email'];
-  $upass = $_POST['txt_password'];
-
-  if($user->login($umail,$upass))
-  {
-  $user->redirect('index.php');
-  }
-  else
-  {
-    $error = "Špatné přihlašovací údaje!";
-  }
-}
-?>
-<!DOCTYPE>
+<!DOCTYPE html>
 
 <html>
 <head>
-<title>Bazar|UK Pedf Praha</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" href="layout/styles/layout.css" type="text/css" />
+  <title>Bazar|UK Pedf Praha</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="layout/styles/layout.css" type="text/css" />
 </head>
 <body id="top">
 <div class="wrapper col1">
@@ -30,19 +13,17 @@ if(isset($_POST['btn-login']))
       <?php
       if(isset($error))
       {
-      ?>
-        Chyba: <?php echo $error; ?>
-    <?php
-    }
         ?>
+        Chyba: <?php echo $error; ?>
+        <?php
+      }
+      ?>
     </div>
     <div id="search">
-<?php
-
-include "login.php";
-
+      <?php
+      include "login.php";
       ?>
-   </div>
+    </div>
     <br class="clear" />
   </div>
 </div>
@@ -64,8 +45,8 @@ include "login.php";
         <li><a href="pridat_inzerat.php">Přidat inzerát</a></li>
         <li><a href="registrace.php">Registrace</a></li>
         <li><a href="dotazy.php">Dotazy</a></li>
-      <li><a href="vase-inzeraty.php">Vaše inzeráty</a></li>
-            </ul>
+        <li><a href="vase-inzeraty.php">Vaše inzeráty</a></li>
+      </ul>
     </div>
     <br class="clear" />
   </div>
@@ -84,8 +65,8 @@ include "login.php";
 
     <div id="content">
       <h2>Seznam nejnovější inzerce</h2>
-    <p>
-    <table border="1" color="black">
+
+      <table>
 
         <thead>
         <tr>
@@ -97,58 +78,55 @@ include "login.php";
         </thead>
         <tbody>
 
-      <?php       // vypsani zaznamu z db - vsechny inzerce
-
-      //include_once ('dbconnect.php');
-      require_once ('databaze.php');
-      require_once ('kniha.php');
-
-      $db = new databaze();
-      $knihy = array();
-      $knihy = $db->select();
-      $db->close();
-
-      foreach ($knihy as $kniha) {
-        $kniha->vypis_index();
-      }
-      ?>
+        <?php       // vypsani zaznamu z db - vsechny inzerce
+        //include_once ('dbconnect.php');
+        require_once ('databaze.php');
+        require_once ('kniha.php');
+        $db = new databaze();
+        $knihy = array();
+        $knihy = $db->select();
+        $db->close();
+        foreach ($knihy as $kniha) {
+          $kniha->vypis_index();
+        }
+        ?>
         </tbody>
-      </table></p>
-  </div>
+      </table>
+    </div>
 
     <br class="clear" />
   </div>
 </div>
 <div class="wrapper col5">
   <div id="footer">
-      <h2>Odkazy</h2>
+    <h2>Odkazy</h2>
     <div class="footbox">
-        <h2>Pedagogická fakulta Univerzita Karlova</h2>
-     <p><a href="http://www.pedf.cuni.cz/"><img src="images/odkazy/uk.png"></a></p>
+      <h2>Pedagogická fakulta Univerzita Karlova</h2>
+      <p><a href="http://www.pedf.cuni.cz/"><img src="images/odkazy/uk.png" alt="pedf"></a></p>
 
 
     </div>
     <div class="footbox">
-        <h2>Webové aplikaec Univerity Karlovy</h2>
-      <p> <a href="https://is.cuni.cz/webapps/"><img src="images/odkazy/app.png"></a></p>
+      <h2>Webové aplikaec Univerity Karlovy</h2>
+      <p> <a href="https://is.cuni.cz/webapps/"><img src="images/odkazy/app.png" alt="webapps"></a></p>
 
     </div>
     <div class="footbox last">
       <h2>Studijní informační systém UK PedF</h2>
-      <p> <a href="https://is.cuni.cz/studium/"><img src="images/odkazy/sis.png"></a></p>
+      <p> <a href="https://is.cuni.cz/studium/"><img src="images/odkazy/sis.png" alt="sis"></a></p>
 
 
     </div>
 
     <br class="clear" />
 
-</div><br>
-<div class="wrapper col6">
-  <div id="copyright">
-    <p class="fl_left">Copyright &copy; 2016 - Bazar knih a skript
-    <p>Pro školní projekt</p>
-    <br class="clear" />
+  </div></div><br>
+  <div class="wrapper col6">
+    <div id="copyright">
+      <p class="fl_left">Copyright &copy; 2016 - Bazar knih a skript
+      <p>Pro školní projekt</p>
+      <br class="clear" />
+    </div>
   </div>
-</div>
 </body>
 </html>
