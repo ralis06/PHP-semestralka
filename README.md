@@ -1,1 +1,1 @@
-# PHP-semestralka
+# Bazar knih a skript
