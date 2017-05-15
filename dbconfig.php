@@ -8,9 +8,9 @@
 session_start();
 
 $DB_host = "localhost";
-$DB_user = "holanmic";
-$DB_pass = "461149";
-$DB_name = "holanmic";
+$DB_user = "***";
+$DB_pass = "***";
+$DB_name = "***";
 
 try
 {
